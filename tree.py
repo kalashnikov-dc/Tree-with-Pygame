@@ -149,7 +149,7 @@ class Tree():
            
         branch_father.have_children = True
 
-        self.branch_color = branch_father.color[0]+15, branch_father.color[1]+1, branch_father.color[2]+15
+        self.branch_color = branch_father.color[0]+20, branch_father.color[1], branch_father.color[2]
 
         self.generations += 1
 

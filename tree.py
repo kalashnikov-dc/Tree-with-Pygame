@@ -5,12 +5,11 @@ import pygame, sys
 from pygame.color import Color
 from random import choice, randint
 from itertools import cycle
-from msg import color_my_message
 
 
 FPS = 30
 TITLE = 'Tree'
-BACKGROUND = 25, 25, 30
+BACKGROUND = 100, 100, 100
 WIDTH, HEIGHT = 800, 600
 SCREEN = pygame.display.set_mode([WIDTH, HEIGHT])
 pygame.display.set_caption(TITLE)
@@ -26,7 +25,7 @@ class Branch(): #Configuracoes do primeiro galho
     x, y = WIDTH/2, 500+17
     width = 10
     direction = 'up'
-    color = (200,200, 200)
+    color = (0,0, 0)
     have_children = False
     score_x, score_y = 0, 0
     goal_x, goal_y = 0, 70
@@ -41,7 +40,7 @@ class Tree():
     generations = 0
     branchers = [Branch()]
     directions = cycle(['up', 'up_left', 'up_right'])
-    branch_color = (200,200, 200)
+    branch_color = (0, 0, 0)
     amount_of_new_branches = 2
     min_x, max_x = 10, 40
     min_y, max_y = 10, 40
@@ -150,13 +149,12 @@ class Tree():
            
         branch_father.have_children = True
 
-        self.branch_color = branch_father.color[0]-1, branch_father.color[1]-10, branch_father.color[2]-1
+        self.branch_color = branch_father.color[0]+15, branch_father.color[1]+1, branch_father.color[2]+15
 
         self.generations += 1
 
     
 
-        message = '[Branchers]: '+str(len(self.branchers))+' (Generations): '+str(self.generations)+' {Fruits}: '+str(len(self.fruits))
 
 
     def add_fruit(self, branch_father):
